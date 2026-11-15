@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Remote debugging descriptor for Link2AE.
+  File name MUST match the ExtensionBundleId: com.yanszz.link2ae.debug
+  After enabling PlayerDebugMode in the registry (see README), you can open
+  http://localhost:8090 in Chrome to inspect this panel's JS console.
+-->
+<ExtensionList>
+    <Extension Id="com.yanszz.link2ae">
+        <HostList>
+            <Host Name="AEFT" Port="8090" />
+        </HostList>
+    </Extension>
+</ExtensionList>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Link2AE</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+
+        <!-- Header -->
+        <header id="app-header">
+            <div class="brand">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                        <path fill="currentColor" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 0-10z"/>
+                    </svg>
+                </span>
+                <span class="brand-name">Link2AE</span>
+            </div>
+            <button id="btn-open-cache" class="icon-btn" title="Buka folder cache">
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path fill="currentColor" d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Tab navigation -->
+        <nav id="tab-nav" class="tab-nav">
+            <button class="tab-btn tab-active" data-tab="images">Images</button>
+            <button class="tab-btn" data-tab="pinterest">Pinterest</button>
+            <button class="tab-btn" data-tab="history">History</button>
+            <button class="tab-btn" data-tab="settings">Settings</button>
+        </nav>
+
+        <!-- Tab panels container -->
+        <div id="tab-panels" class="tab-panels">
+
+            <!-- ===== Images tab ===== -->
+            <section id="tab-images" class="tab-panel tab-active">
+                <!-- URL input + actions -->
+        <section id="url-section">
+            <label for="url-input" class="sr-only">URL Gambar</label>
+            <div class="url-row">
+                <span class="url-prefix" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="15" height="15">
+                        <path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14A7.8 7.8 0 0 1 4 12c0-.69.1-1.36.26-2h3.38a16.6 16.6 0 0 0 0 4H4.26zm.81 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.99 7.99 0 0 1 5.07 16zm2.95-8H5.07a7.99 7.99 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.02 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82A13.9 13.9 0 0 1 12 19.96zM14.34 14H9.66a14.62 14.62 0 0 1 0-4h4.68a14.62 14.62 0 0 1 0 4zm.26 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a7.99 7.99 0 0 1-4.33 3.56zM16.36 14a16.6 16.6 0 0 0 0-4h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+                    </svg>
+                </span>
+                <input id="url-input" type="text" spellcheck="false"
+                       placeholder="https://example.com/image.jpg"
+                       autocomplete="off" />
+            </div>
+
+            <div class="btn-row">
+                <button id="btn-download" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" width="15" height="15">
+                        <path fill="currentColor" d="M5 20h14v-2H5v2zm7-18v10.17l3.59-3.58L17 10l-5 5-5-5 1.41-1.41L12 12.17V2h0z"/>
+                    </svg>
+                    Download
+                </button>
+                <button id="btn-download-import" class="btn btn-accent">
+                    <svg viewBox="0 0 24 24" width="15" height="15">
+                        <path fill="currentColor" d="M5 20h14v-2H5v2zM12 2 6 10h4v6h4v-6h4L12 2z"/>
+                    </svg>
+                    Download &amp; Import
+                </button>
+                <button id="btn-clear" class="btn btn-ghost" title="Kosongkan input">
+                    Clear
+                </button>
+            </div>
+        </section>
+
+        <!-- Progress + status -->
+        <section id="status-section">
+            <div id="progress-track" class="progress-track">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <div id="status-text" class="status-text">Siap. Tempel URL gambar lalu tekan Download.</div>
+        </section>
+            </section>
+
+            <!-- ===== Pinterest tab ===== -->
+            <section id="tab-pinterest" class="tab-panel">
+                <section id="pinterest-section">
+                    <label for="pinterest-url-input" class="sr-only">URL Pinterest Pin</label>
+                    <div class="url-row">
+                        <span class="url-prefix" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="15" height="15">
+                                <path fill="currentColor" d="M9.05 3.3a5 5 0 0 1 5 5v6h6a5 5 0 0 1 5 5v1a5 5 0 0 1-5 5H4a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5m5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-4 4a3 3 0 1 1 3-3v2a1 1 0 1 0-2 0V4a1 1 0 1 0 2 0v2a3 3 0 0 1-3 3zm11-5h-3V7a1 1 0 1 0-2 0v3H7a3 3 0 1 0 0 6h10a3 3 0 1 0 0-6z"/>
+                            </svg>
+                        </span>
+                        <input id="pinterest-url-input" type="text" spellcheck="false"
+                               placeholder="https://pin.it/xxxx atau https://www.pinterest.com/pin/xxxxxx/"
+                               autocomplete="off" />
+                    </div>
+
+                    <div class="btn-row">
+                        <button id="btn-pinterest-resolve" class="btn btn-primary">
+                            <svg viewBox="0 0 24 24" width="15" height="15">
+                                <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16.5 9.5 6.5 6.5 0 1 0 9 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 9.5 5 13 7.01 13 9.5 10.99 14 9.5 14z"/>
+                            </svg>
+                            Resolve
+                        </button>
+                        <button id="btn-pinterest-download" class="btn btn-accent" disabled>
+                            <svg viewBox="0 0 24 24" width="15" height="15">
+                                <path fill="currentColor" d="M5 20h14v-2H5v2zm7-18v10.17l3.59-3.58L17 10l-5 5-5-5 1.41-1.41L12 12.17V2h0z"/>
+                            </svg>
+                            Download
+                        </button>
+                        <button id="btn-pinterest-download-import" class="btn btn-accent" disabled>
+                            <svg viewBox="0 0 24 24" width="15" height="15">
+                                <path fill="currentColor" d="M5 20h14v-2H5v2zM12 2 6 10h4v6h4v-6h4L12 2z"/>
+                            </svg>
+                            Download &amp; Import
+                        </button>
+                        <button id="btn-pinterest-clear" class="btn btn-ghost" title="Kosongkan">
+                            Clear
+                        </button>
+                    </div>
+
+                    <!-- Image preview -->
+                    <section id="pinterest-preview" class="preview-card" style="display:none;">
+                        <div class="preview-header">Pratinjau Gambar</div>
+                        <div class="preview-image-wrap">
+                            <img id="pinterest-preview-img" src="" alt="Pratinjau" />
+                            <div id="pinterest-preview-placeholder" class="preview-placeholder">Tidak ada pratinjau</div>
+                        </div>
+                        <div class="preview-info" id="pinterest-preview-info">
+                            <div class="preview-row">
+                                <span class="preview-label">File:</span>
+                                <span id="pinterest-info-name" class="preview-value">-</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Resolusi:</span>
+                                <span id="pinterest-info-resolution" class="preview-value">-</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Format:</span>
+                                <span id="pinterest-info-format" class="preview-value">-</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Ukuran:</span>
+                                <span id="pinterest-info-size" class="preview-value">-</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Sumber:</span>
+                                <span id="pinterest-info-source" class="preview-value">-</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">URL:</span>
+                                <span id="pinterest-info-url" class="preview-value url-text">-</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Progress + status (Pinterest) -->
+                    <section id="pinterest-status-section">
+                        <div id="pinterest-progress-track" class="progress-track">
+                            <div id="pinterest-progress-bar" class="progress-bar"></div>
+                        </div>
+                        <div id="pinterest-status-text" class="status-text">Siap. Masukkan URL Pinterest lalu tekan Resolve.</div>
+                    </section>
+                </section>
+            </section>
+
+            <!-- ===== History tab ===== -->
+            <section id="tab-history" class="tab-panel">
+                <!-- History -->
+                <section id="history-section">
+            <div class="history-head">
+                <span class="history-title">Riwayat Download</span>
+                <button id="btn-clear-history" class="link-btn">Bersihkan</button>
+            </div>
+            <ul id="history-list" class="history-list">
+                <!-- history items are injected by main.js -->
+            </ul>
+            <div id="history-empty" class="history-empty">Belum ada gambar yang diunduh.</div>
+                </section>
+            </section>
+
+            <!-- ===== Settings tab ===== -->
+            <section id="tab-settings" class="tab-panel">
+                <section id="settings-section">
+                    <div class="settings-group">
+                        <div class="settings-label">Batas Ukuran File (Maksimum)</div>
+                        <div class="settings-row">
+                            <input id="settings-max-size" type="number" placeholder="100" min="1" />
+                            <span class="settings-unit">MB</span>
+                        </div>
+                        <div class="settings-desc">Maksimum ukuran file yang diizinkan untuk diunduh.</div>
+                    </div>
+                    <div class="settings-group">
+                        <div class="settings-label">Folder Cache</div>
+                        <div class="settings-row">
+                            <span id="settings-cache-path" class="settings-value">~/Link2AE/cache</span>
+                            <button id="btn-settings-open-cache" class="btn btn-ghost" style="padding:4px 8px;">Buka Folder</button>
+                        </div>
+                        <div class="settings-desc">File yang diunduh disimpan di folder cache lokal Link2AE.</div>
+                    </div>
+                    <div class="settings-group">
+                        <div class="settings-label">Timeout Jaringan</div>
+                        <div class="settings-row">
+                            <input id="settings-timeout" type="number" placeholder="30" min="1" />
+                            <span class="settings-unit">detik</span>
+                        </div>
+                    </div>
+                    <div class="settings-actions">
+                        <button id="btn-settings-save" class="btn btn-accent">Simpan</button>
+                        <button id="btn-settings-reset" class="btn btn-ghost">Reset</button>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+
+    </div>
+
+    <!-- CEP + app scripts. Order matters: CSInterface first. -->
+    <script type="text/javascript" src="js/CSInterface.js"></script>
+    <script type="text/javascript" src="js/downloader.js"></script>
+    <script type="text/javascript" src="js/pinterest.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

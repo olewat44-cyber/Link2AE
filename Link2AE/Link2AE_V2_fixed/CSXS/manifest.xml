@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="6.0"
+    ExtensionBundleId="com.yanszz.link2ae"
+    ExtensionBundleVersion="2.0.0"
+    ExtensionBundleName="Link2AE"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <ExtensionList>
+        <Extension Id="com.yanszz.link2ae" Version="2.0.0" />
+    </ExtensionList>
+
+    <ExecutionEnvironment>
+        <HostList>
+            <!-- After Effects: 13.x (CC 2015.x) through 14.x (CC 2017) and later.
+                 AE CC 2017 = version 14.0 and runs on CEP 6. -->
+            <Host Name="AEFT" Version="[13.0,99.9]" />
+        </HostList>
+        <LocaleList>
+            <Locale Code="All" />
+        </LocaleList>
+        <RequiredRuntimeList>
+            <!-- AE CC 2017 ships with CEP 6. Do NOT use 7.0+ or the panel will be rejected. -->
+            <RequiredRuntime Name="CSXS" Version="6.0" />
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+
+    <DispatchInfoList>
+        <Extension Id="com.yanszz.link2ae">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./index.html</MainPath>
+                    <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+                    <!-- Enable Node.js so we can download images reliably (no CORS limits).
+                         IO.js in CEP 6.1 is old, so all Node code here is written in ES5. -->
+                    <CEFCommandLine>
+                        <Parameter>--enable-nodejs</Parameter>
+                        <Parameter>--mixed-context</Parameter>
+                        <Parameter>--allow-file-access</Parameter>
+                        <Parameter>--allow-file-access-from-files</Parameter>
+                    </CEFCommandLine>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>Link2AE</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>540</Height>
+                            <Width>340</Width>
+                        </Size>
+                        <MinSize>
+                            <Height>420</Height>
+                            <Width>300</Width>
+                        </MinSize>
+                    </Geometry>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>
